@@ -16,9 +16,7 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(PacienteController.class)
@@ -44,7 +42,10 @@ public class PacienteControllerTest {
 
         PacienteResponse response = new PacienteResponse();
         response.setId(1L);
+        response.setRut("20879762-k");
         response.setNombre("Pedro");
+        response.setContacto("pedro@gmail.com");
+        response.setHistorial("Sin antecedentes");
 
         when(service.crearPaciente(any(PacienteRequest.class)))
                 .thenReturn(response);
@@ -61,7 +62,10 @@ public class PacienteControllerTest {
 
         PacienteResponse response = new PacienteResponse();
         response.setId(1L);
+        response.setRut("20879762-k");
         response.setNombre("Pedro");
+        response.setContacto("pedro@gmail.com");
+        response.setHistorial("Sin antecedentes");
 
         when(service.obtenerPacientes())
                 .thenReturn(List.of(response));
@@ -76,7 +80,10 @@ public class PacienteControllerTest {
 
         PacienteResponse response = new PacienteResponse();
         response.setId(1L);
+        response.setRut("20879762-k");
         response.setNombre("Pedro");
+        response.setContacto("pedro@gmail.com");
+        response.setHistorial("Sin antecedentes");
 
         when(service.obtenerPacientePorId(1L))
                 .thenReturn(response);
@@ -90,11 +97,17 @@ public class PacienteControllerTest {
     void deberiaActualizarPaciente() throws Exception {
 
         PacienteRequest request = new PacienteRequest();
+        request.setRut("20879762-k");
         request.setNombre("Pedro Actualizado");
+        request.setContacto("pedroactualizado@gmail.com");
+        request.setHistorial("Sin antecedentes actualizados");
 
         PacienteResponse response = new PacienteResponse();
         response.setId(1L);
+        response.setRut("20879762-k");
         response.setNombre("Pedro Actualizado");
+        response.setContacto("pedroactualizado@gmail.com");
+        response.setHistorial("Sin antecedentes actualizados");
 
         when(service.actualizarPaciente(any(Long.class), any(PacienteRequest.class)))
                 .thenReturn(response);

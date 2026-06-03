@@ -35,12 +35,11 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	// MySQL
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	// PostgreSQL
+	runtimeOnly 'org.postgresql:postgresql'
 
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 }
 
 tasks.named('test') {
